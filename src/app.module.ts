@@ -15,10 +15,10 @@ import { HttpErrorFilter } from './shared/http-error.filter';
   controllers: [AppController],
   providers: [
     AppService,
-    // {
-    //   provide: APP_FILTER,
-    //   useClass: HttpErrorFilter
-    // }
+    {
+      provide: APP_FILTER,
+      useClass: HttpErrorFilter
+    }
   ],
 })
 export class AppModule { }

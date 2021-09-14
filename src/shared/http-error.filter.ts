@@ -13,11 +13,11 @@ export class HttpErrorFilter implements ExceptionFilter {
             timestamp: new Date().toLocaleDateString(),
             path: request.url,
             method: request.method,
-            message: exception.message || null
+            message: exception || null
         }
 
         Logger.error(`${request.method} ${request.url}`, JSON.stringify(errorResponse), 'ExceptionFilter')
 
-        response.status(404).json({ errorResponse });
+        response.status(status).json({ errorResponse });
     }
 }
