@@ -11,7 +11,7 @@ export class FilekitaService {
         private filekitaRepository: Repository<FileKita>
     ) { }
 
-    async showAll() {
+    async showAll(): Promise<FileKita[]> {
         return await this.filekitaRepository.find();
     }
 
@@ -23,10 +23,10 @@ export class FilekitaService {
 
     async hasil() {
         return 'Service file kita';
-    }
+    };
 
-    async showbyid(id: string) {
-        return await this.filekitaRepository.findOne({ where: { id } });
+    async showbyid(id: number): Promise<FileKita> {
+        return this.filekitaRepository.findOne({ where: { id } });
     }
 
     async update(id: number, data: Partial<FileKitaDTO>) {

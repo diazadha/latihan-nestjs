@@ -5,14 +5,15 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { FilekitaModule } from './filekita/filekita.module';
 import { APP_FILTER } from '@nestjs/core';
 import { HttpErrorFilter } from './shared/http-error.filter';
+import { Repository } from 'typeorm';
+
 
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-
-    }),
+    TypeOrmModule.forRoot({}),
     FilekitaModule,
+    Repository
   ],
   controllers: [AppController],
   providers: [

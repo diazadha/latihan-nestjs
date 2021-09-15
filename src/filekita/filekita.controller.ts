@@ -3,6 +3,7 @@ import { FilekitaService } from './filekita.service';
 import { FileKitaDTO } from './filekita.dto';
 // import { ValidationPipe } from 'src/shared/validation.pipe';
 import { ValidationPipe } from '../shared/validation.pipe';
+import { FileKita } from './filekita.entity';
 
 @Controller('filekita')
 export class FilekitaController {
@@ -33,9 +34,8 @@ export class FilekitaController {
     // }
 
     @Get(':id')
-    hasil_detail(@Param('id') id: string) {
-        // return 'Ini halaman detail' + id;
-        return this.FilekitaService.showbyid(id);
+    hasil_detail(@Param('id') id: string): Promise<FileKita> {
+        return this.FilekitaService.showbyid(+id);
     }
 
     @Put(':id')
