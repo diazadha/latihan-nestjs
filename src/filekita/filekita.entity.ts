@@ -2,7 +2,7 @@
 
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity('file_kita')
+@Entity()
 export class FileKita {
     @PrimaryGeneratedColumn()
     id: number;

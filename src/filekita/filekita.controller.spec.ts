@@ -1,13 +1,19 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { FilekitaController } from './filekita.controller';
+import { FilekitaService } from './filekita.service';
 
 describe('FilekitaController', () => {
   let controller: FilekitaController;
 
+  const mockFilekitaService = {}
+
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [FilekitaController],
-    }).compile();
+      providers: [FilekitaService]
+    }).overrideProvider(FilekitaService)
+      .useValue(mockFilekitaService)
+      .compile();
 
     controller = module.get<FilekitaController>(FilekitaController);
   });

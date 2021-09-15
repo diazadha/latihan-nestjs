@@ -9,7 +9,9 @@ import { HttpErrorFilter } from './shared/http-error.filter';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(),
+    TypeOrmModule.forRoot({
+
+    }),
     FilekitaModule,
   ],
   controllers: [AppController],

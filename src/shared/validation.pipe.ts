@@ -6,11 +6,11 @@ import { plainToClass } from 'class-transformer';
 export class ValidationPipe implements PipeTransform<any> {
     async transform(value: any, metadata: ArgumentMetadata) {
         if (value instanceof Object && this.isEmpty(value)) {
-            throw new BadRequestException('Tidak ada dataa');
-            // throw new HttpException(
-            //     'Validation failed: No data submitted',
-            //     HttpStatus.BAD_REQUEST,
-            // );
+            // throw new BadRequestException('Tidak ada dataa');
+            throw new HttpException(
+                'Validation failed: No data submitted',
+                HttpStatus.BAD_REQUEST,
+            );
         }
 
         const { metatype } = metadata;
