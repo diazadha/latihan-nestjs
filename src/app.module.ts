@@ -6,6 +6,7 @@ import { FilekitaModule } from './filekita/filekita.module';
 import { APP_FILTER } from '@nestjs/core';
 import { HttpErrorFilter } from './shared/http-error.filter';
 import { Repository } from 'typeorm';
+import { TodolistModule } from './todolist/todolist.module';
 
 
 
@@ -13,7 +14,8 @@ import { Repository } from 'typeorm';
   imports: [
     TypeOrmModule.forRoot({}),
     FilekitaModule,
-    Repository
+    Repository,
+    TodolistModule
   ],
   controllers: [AppController],
   providers: [
