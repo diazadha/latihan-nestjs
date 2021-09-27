@@ -10,9 +10,12 @@ const port = parseInt(process.env.PORT);
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(
-    AppModule,
+    AppModule, { cors: true }
   );
-
+  // app.enableCors({
+  //   origin:"http://akusuka.com",
+  //   methods:
+  // })
   app.useGlobalPipes(
     new ValidationPipe({
       transform: false,
